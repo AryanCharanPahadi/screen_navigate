@@ -33,8 +33,9 @@ class _ChatInboxState extends State<ChatInbox> {
   final ContactController contactController = Get.put(ContactController());
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  void showCreateContactBottomSheet(BuildContext context,
-      {Map<String, String>? contact}) {
+  void showCreateContactBottomSheet(
+    BuildContext context,
+  ) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -137,7 +138,7 @@ class _ChatInboxState extends State<ChatInbox> {
                           ),
                         ),
                         TextFormField(
-                          controller: contactController.phoneNumber,
+                          controller: contactController.phoneNumber2,
                           decoration: InputDecoration(
                             labelText: 'Select Contact',
                             filled: true,
@@ -154,6 +155,22 @@ class _ChatInboxState extends State<ChatInbox> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
+                          keyboardType: TextInputType.phone,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            LengthLimitingTextInputFormatter(10),
+                          ],
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter phone number';
+                            }
+                            String pattern = r'^[6-9]\d{9}$';
+                            RegExp regex = RegExp(pattern);
+                            if (!regex.hasMatch(value)) {
+                              return 'Enter a valid phone number';
+                            }
+                            return null;
+                          },
                         ),
                         const SizedBox(height: 30),
                         Center(

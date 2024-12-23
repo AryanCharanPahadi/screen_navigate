@@ -14,18 +14,20 @@ class ImagePickerService {
     try {
       if (kIsWeb || Platform.isAndroid || Platform.isIOS) {
         // Supported platforms: Android, iOS, Web
-        final List<XFile>? selectedImages = await _picker.pickMultiImage(
+        final List<XFile> selectedImages = await _picker.pickMultiImage(
           imageQuality: imageQuality,
           maxWidth: maxWidth,
           maxHeight: maxHeight,
         );
-        return selectedImages ?? [];
+        return selectedImages;
       } else {
         throw UnsupportedError(
             "Gallery image picking is not supported on this platform.");
       }
     } catch (e) {
-      print("Error picking images from gallery: $e");
+      if (kDebugMode) {
+        print("Error picking images from gallery: $e");
+      }
       return [];
     }
   }
@@ -51,7 +53,9 @@ class ImagePickerService {
             "Camera image picking is not supported on this platform.");
       }
     } catch (e) {
-      print("Error picking image from camera: $e");
+      if (kDebugMode) {
+        print("Error picking image from camera: $e");
+      }
       return null;
     }
   }

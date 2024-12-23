@@ -15,7 +15,7 @@ class CustomRadioButton<T> extends StatelessWidget {
   final bool showError; // Flag to show error message or not
 
   const CustomRadioButton({
-    Key? key,
+    super.key,
     required this.values,
     required this.groupValue,
     required this.onChanged,
@@ -27,7 +27,7 @@ class CustomRadioButton<T> extends StatelessWidget {
     this.isExpanded = false, // Default to not expanded
     this.errorMessage, // Error message (optional)
     this.showError = false, // Whether to show error message (optional)
-  }) : super(key: key);
+  });
 
   static String defaultItemBuilder(dynamic value) {
     return value.toString();
@@ -69,7 +69,7 @@ class CustomRadioButton<T> extends StatelessWidget {
               ],
             ),
           );
-        }).toList(),
+        }),
 
         // Display the error message if showError is true and no option is selected
         if (showError && groupValue == null)
@@ -78,7 +78,7 @@ class CustomRadioButton<T> extends StatelessWidget {
             child: Text(
               errorMessage ??
                   'Please select an option', // Default error message if none provided
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.red,
                 fontSize: 14.0,
                 fontWeight: FontWeight.bold,

@@ -24,7 +24,7 @@ class CustomTextField extends StatefulWidget {
   final bool showCharCount; // New property to control character count visibility
 
   const CustomTextField({
-    Key? key,
+    super.key,
     this.hintText,
     this.labelText,
     this.initialValue,
@@ -46,13 +46,13 @@ class CustomTextField extends StatefulWidget {
     this.focusNode,
     this.decoration,
     this.showCharCount = false, // Default is false
-  }) : super(key: key);
+  });
 
   @override
-  _CustomTextFieldState createState() => _CustomTextFieldState();
+  CustomTextFieldState createState() => CustomTextFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class CustomTextFieldState extends State<CustomTextField> {
   late TextEditingController _controller;
   late int _charCount;
 

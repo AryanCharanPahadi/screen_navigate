@@ -9,10 +9,10 @@ class ImagePickerPage extends StatefulWidget {
   const ImagePickerPage({super.key});
 
   @override
-  _ImagePickerPageState createState() => _ImagePickerPageState();
+  ImagePickerPageState createState() => ImagePickerPageState();
 }
 
-class _ImagePickerPageState extends State<ImagePickerPage> {
+class ImagePickerPageState extends State<ImagePickerPage> {
   final ImagePickerService _imagePickerService = ImagePickerService();
   List<XFile>? _selectedImages = [];
   XFile? _capturedImage;

@@ -93,7 +93,9 @@ class ContactData {
               "currentTime": contact['currentTime'],
             });
           }
-          print(contacts);
+          if (kDebugMode) {
+            print(contacts);
+          }
 
           customSnackbar(
             'Success',

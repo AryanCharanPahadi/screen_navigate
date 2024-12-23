@@ -15,7 +15,7 @@ class CustomOutlinedButton extends StatelessWidget {
   final bool isDisabled; // Whether the button is disabled
 
   const CustomOutlinedButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.textStyle,
@@ -27,7 +27,7 @@ class CustomOutlinedButton extends StatelessWidget {
     this.borderRadius = 8.0,
     this.padding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
     this.isDisabled = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +39,16 @@ class CustomOutlinedButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: isEnabled ? onPressed : null,
         style: ButtonStyle(
-          padding: MaterialStateProperty.all(padding),
-          side: MaterialStateProperty.all(
+          padding: WidgetStateProperty.all(padding),
+          side: WidgetStateProperty.all(
             BorderSide(color: borderColor ?? Theme.of(context).primaryColor),
           ),
-          shape: MaterialStateProperty.all(
+          shape: WidgetStateProperty.all(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius),
             ),
           ),
-          foregroundColor: MaterialStateProperty.all(
+          foregroundColor: WidgetStateProperty.all(
             isEnabled ? (textColor ?? Theme.of(context).primaryColor) : Colors.grey,
           ),
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 class CustomPopup extends StatelessWidget {
   final String title; // Title of the popup
   final String message; // Message content

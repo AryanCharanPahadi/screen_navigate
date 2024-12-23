@@ -10,20 +10,20 @@ class CustomSplashScreen extends StatefulWidget {
   final Widget Function(BuildContext context) navigateTo;
 
   const CustomSplashScreen({
-    Key? key,
+    super.key,
     this.backgroundImage,
     this.logoImage,
     this.logoWidth = 150.0,
     this.logoHeight = 150.0,
     this.duration = const Duration(seconds: 3),
     required this.navigateTo,
-  }) : super(key: key);
+  });
 
   @override
-  _CustomSplashScreenState createState() => _CustomSplashScreenState();
+  CustomSplashScreenState createState() => CustomSplashScreenState();
 }
 
-class _CustomSplashScreenState extends State<CustomSplashScreen> {
+class CustomSplashScreenState extends State<CustomSplashScreen> {
   @override
   void initState() {
     super.initState();

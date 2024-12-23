@@ -26,7 +26,7 @@ class CustomInkWellButton extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Text(
           text,
-          style: textStyle ?? TextStyle(fontSize: 16.0),
+          style: textStyle ?? const TextStyle(fontSize: 16.0),
         ),
       ),
     );

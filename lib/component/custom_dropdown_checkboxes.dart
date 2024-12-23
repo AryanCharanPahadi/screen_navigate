@@ -17,11 +17,11 @@ class CustomMultiSelectDropdown extends StatefulWidget {
   });
 
   @override
-  _CustomMultiSelectDropdownState createState() =>
-      _CustomMultiSelectDropdownState();
+  CustomMultiSelectDropdownState createState() =>
+      CustomMultiSelectDropdownState();
 }
 
-class _CustomMultiSelectDropdownState extends State<CustomMultiSelectDropdown> {
+class CustomMultiSelectDropdownState extends State<CustomMultiSelectDropdown> {
   final List<String> _selectedItems = []; // List of selected items
 
   void _toggleSelection(String item) {

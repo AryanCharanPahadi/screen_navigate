@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class ThemeManager extends ChangeNotifier {
@@ -6,7 +7,9 @@ class ThemeManager extends ChangeNotifier {
 
   //toggle function to change the theme mode
   void toggleTheme(bool isDark) {
-    print('toggle theme is called $isDark');
+    if (kDebugMode) {
+      print('toggle theme is called $isDark');
+    }
     _themeMode = isDark ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }

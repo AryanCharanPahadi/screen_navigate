@@ -11,7 +11,7 @@ class CustomTextButton extends StatelessWidget {
   final bool isDisabled; // Whether the button is disabled
 
   const CustomTextButton({
-    Key? key,
+    super.key,
     required this.text,
     required this.onPressed,
     this.textStyle,
@@ -19,7 +19,7 @@ class CustomTextButton extends StatelessWidget {
     this.icon,
     this.padding = const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
     this.isDisabled = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       onPressed: isEnabled ? onPressed : null,
       style: ButtonStyle(
-        padding: MaterialStateProperty.all(padding),
-        foregroundColor: MaterialStateProperty.all(
+        padding: WidgetStateProperty.all(padding),
+        foregroundColor: WidgetStateProperty.all(
           isEnabled ? (textColor ?? Theme.of(context).primaryColor) : Colors.grey,
         ),
       ),
