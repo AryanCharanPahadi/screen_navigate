@@ -11,9 +11,7 @@ class CustomPopup extends StatelessWidget {
   final TextStyle? titleStyle; // Custom title text style
   final TextStyle? messageStyle; // Custom message text style
 
-  const
-
-  CustomPopup({
+  const CustomPopup({
     super.key,
     required this.title,
     required this.message,
